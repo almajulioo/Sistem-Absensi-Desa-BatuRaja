@@ -30,6 +30,6 @@ class AppServiceProvider extends ServiceProvider
                     ->sort(1), 
             ]);
         });
-        // $this->app['request']->server->set('HTTPS', true);
+        $this->app['request']->server->set('HTTPS', true);
     }
 }
