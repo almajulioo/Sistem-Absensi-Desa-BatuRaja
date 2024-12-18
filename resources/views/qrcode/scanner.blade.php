@@ -64,7 +64,7 @@
         document.getElementById("result-message").textContent = `QR Code ditemukan: ${decodedText}`;
         
         // Kirim data ke backend untuk validasi
-        fetch('https://sistem-absensi-desa-baturaja-production.up.railway.app/qrcode-validasi', {
+        fetch('https://sistem-absensi-desa-baturaja.up.railway.app/qrcode-validasi', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
