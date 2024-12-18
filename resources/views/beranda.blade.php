@@ -25,6 +25,18 @@
       <h1 class="text-[16px] lg:text-[20px] font-semibold rounded-full px-5 py-2 bg-[#FFB524]"><a href="{{ route('logout') }}">Logout</a></h1>
     </div>
   </nav>
+  @if (session('success'))
+    <script>
+        alert("{{ addslashes(session('success')) }}");
+    </script>
+  @elseif (session('error'))
+      <script>
+          alert("{{ addslashes(session('error')) }}");
+      </script>
+  @endif
+
+
+
 
   <div class="px-[15px] md:px-[30px] lg:px-[66px] mt-[70px]">
     <h1 class="text-[32px] font-semibold text-[#010C4A]">Selamat Datang, {{ Auth::user()->name }}!</h1>

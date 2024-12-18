@@ -52,7 +52,6 @@ class QrCodeController extends Controller
     
         // Validasi waktu absensi
         $currentHour = now()->hour;
-        dd($currentHour);
         if ($currentHour < 7 || $currentHour >= 17) {
             return redirect()->route('qrcode.scanner')->with('error', 'Absensi hanya diperbolehkan antara pukul 07:00 hingga 17:00');
         }
