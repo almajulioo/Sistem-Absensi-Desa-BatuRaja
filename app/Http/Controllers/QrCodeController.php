@@ -49,27 +49,38 @@ class QrCodeController extends Controller
         $request->validate([
             'code' => 'required',
         ]);
-
-
+    
+        // Validasi waktu absensi
+        $currentHour = now()->hour;
+        dd($currentHour);
+        if ($currentHour < 7 || $currentHour >= 17) {
+            return redirect()->route('qrcode.scanner')->with('error', 'Absensi hanya diperbolehkan antara pukul 07:00 hingga 17:00');
+        }
+    
+        // Validasi QR Code
         $qrcode = Qrcodes::where('code', $request->code)->first();
-        if($qrcode && $qrcode->valid_date != now()->toDateString()){
+        if ($qrcode && $qrcode->valid_date != now()->toDateString()) {
             return redirect()->route('qrcode.scanner')->with('error', 'QR Code tidak valid');
         }
 
+    
+        // Cek kehadiran
         $kehadiran = Kehadiran::where('qrcode_id', $qrcode->id)->where('user_id', Auth::user()->id)->first();
-        if($kehadiran){
+        if ($kehadiran) {
             return redirect()->route('beranda')->with('error', 'Kehadiran sudah tercatat');
         }
         
-        if($qrcode){
-            $kehadiran = Kehadiran::create([
+        // Simpan data kehadiran
+        if ($qrcode) {
+            Kehadiran::create([
                 'qrcode_id' => $qrcode->id,
                 'user_id' => auth()->user()->id,
                 'status' => 'hadir',
             ]);
             return redirect()->route('beranda')->with('success', 'Kehadiran berhasil ditambahkan');
         }
-
+    
         return redirect()->route('qrcode.scanner')->with('error', 'QR Code tidak valid');
     }
+    
 }
