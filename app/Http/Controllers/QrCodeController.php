@@ -73,6 +73,13 @@ class QrCodeController extends Controller
         // Cek kehadiran
         $kehadiran = Kehadiran::where('qrcode_id', $qrcode->id)->where('user_id', Auth::user()->id)->first();
         if ($kehadiran) {
+            if ($kehadiran->status == "tidak")
+            { 
+                $kehadiran -> update([
+                        "status"=>"hadir"
+                ]);
+                return redirect()->route("beranda")->with('success', 'Berhasil mencatat kehadiran');
+            }
             return redirect()->route('beranda')->with('error', 'Kehadiran sudah tercatat');
         }
         
