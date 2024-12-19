@@ -3,8 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Qrcodes;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -199,5 +202,17 @@ class DatabaseSeeder extends Seeder
                 ],
             ]);
             
+            $uniqueCode = Str::uuid();
+            Qrcodes::create([
+                'code' => $uniqueCode,
+                'valid_date' => '2024-12-06',
+            ]);
+            
+            $uniqueCode2 = Str::uuid();
+            Qrcodes::create([
+                'code' => $uniqueCode2,
+                'valid_date' => '2024-12-07',
+            ]);
+
     }
 }
