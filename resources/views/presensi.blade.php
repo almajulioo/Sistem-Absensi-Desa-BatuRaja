@@ -48,7 +48,7 @@
                 @endif
             </td>
             @if ($item->status == 'hadir')
-            <td class="py-2 text-[12px] md:text-[15px] lg:text-[20px] text-white/50 font-normal">{{$item->created_at}}</td>
+            <td class="py-2 text-[12px] md:text-[15px] lg:text-[20px] text-white/50 font-normal">{{$item->updated_at}}</td>
             @else
             <td class="py-2 text-[12px] md:text-[15px] lg:text-[20px] text-white/50 font-normal">-</td>
             @endif
