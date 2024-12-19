@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kehadiran;
+use App\Models\User;
 use App\Models\Qrcodes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,12 +24,18 @@ class QrCodeController extends Controller
         }
 
         $qrCode = Qrcodes::where('valid_date', now()->toDateString())->first();
-
         if (!$qrCode) {
             $qrCode = Qrcodes::create([
                 'code' => $uniqueCode,
                 'valid_date' => now()->toDateString(),
             ]);
+            $users = User::all();
+            foreach($users as $user) {
+                Kehadiran::create([
+                    'user_id' => $user->id,
+                    'qrcode_id' => $qrCode->id,
+                ]);
+            }
         }
         // Generate QR Code gambar
         $qrCodeImage =  QrCode::size(200)

@@ -25,16 +25,16 @@
 
   <form class="bg-[#FFB524] px-4 sm:px-10 md:px-16  pt-14 sm:pt-20 pb-24 w-[80%] sm:w-[530px] md:w-[630px] rounded-3xl font-poppins ml-auto max-lg:mr-auto drop-shadow-custom" action="{{ route('login') }}" method="POST">
     @csrf
-    <h1 class="font-medium text-[45px] text-center">Login</h1>
+    <h1 class="font-medium text-[25px] sm:text-[30px] md:text-[35px] lg:text-[45px] text-center">Login</h1>
     <div>
-      <input placeholder="Email" class="w-full rounded-full py-3 text-[25px] px-[20px] mt-[45px] sm:mt-[50px] md:mt-[77px]" type="text" name="email" id="">
+      <input placeholder="Email" class="w-full rounded-full py-2 lg:py-3 text-[16px] md:text-[20px] lg:text-[25px] px-[20px] mt-[45px] sm:mt-[50px] md:mt-[77px]" type="text" name="email" id="">
     </div>
     <div>
-      <input placeholder="Password" class="w-full rounded-full py-3 text-[25px] px-[20px] mt-[46px]" type="password" name="password">
+      <input placeholder="Password" class="w-full rounded-full py-2 lg:py-3 text-[16px] md:text-[20px] lg:text-[25px] px-[20px] mt-[46px]" type="password" name="password">
     </div>
 
     <div>
-      <button class="mt-[90px] sm:mt-[100px] md:mt-[140px] text-[30px] font-medium bg-[#010C4A] text-white w-full rounded-full" type="submit">Login</button>
+      <button class="mt-[50px] sm:mt-[70px] md:mt-[140px] py-2 text-[20px] md:text-[25px] lg:text-[30px] font-medium bg-[#010C4A] text-white w-full rounded-full" type="submit">Login</button>
     </div>
   </form>
 </body>

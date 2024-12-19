@@ -25,7 +25,9 @@
       <h1 class="text-[16px] lg:text-[20px] font-semibold rounded-full px-5 py-2 bg-[#FFB524]"><a href="{{ route('logout') }}">Logout</a></h1>
     </div>
   </nav>
-
+  <div class="px-[15px] md:px-[30px] lg:px-[66px]">
+    <h1 class="mt-[75px] text-[25px] lg:text-[32px] font-semibold text-[#010C4A]">Selamat Datang, {{ Auth::user()->name }}!</h1>
+  </div>
     <div class="flex flex-col items-center justify-center py-10">
         <h1 class="text-25px font-bold">Generated QR Code</h1>
         {!! $qrCodeImage !!}

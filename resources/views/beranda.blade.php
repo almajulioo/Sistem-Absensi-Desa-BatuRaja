@@ -39,18 +39,18 @@
 
 
   <div class="px-[15px] md:px-[30px] lg:px-[66px] mt-[70px]">
-    <h1 class="text-[32px] font-semibold text-[#010C4A]">Selamat Datang, {{ Auth::user()->name }}!</h1>
-    <div class="flex gap-[50px] sm:gap-[80px] md:gap-[120px] lg:gap-[193px] mt-[100px] lg:mt-[201px] justify-center">
+    <h1 class="text-[25px] lg:text-[32px] font-semibold text-[#010C4A]">Selamat Datang, {{ Auth::user()->name }}!</h1>
+    <div class="flex gap-[50px] sm:gap-[80px] md:gap-[120px] lg:gap-[193px] mt-[75px] md:mt-[100px] lg:mt-[201px] justify-center">
       <a href="{{ route('presensi') }}">
-        <div class="bg-[#FFB524] border-black border border-solid w-[143px] h-[143px] flex flex-col justify-center items-center rounded-3xl">
-          <img src="{{ asset('img/kalender.png') }}" alt="">
-          <h1 class="text-[20px] font-semibold text-[#010C4A]">Presensi</h1>
+        <div class="bg-[#FFB524] border-black border border-solid w-[120px] h-[120px] lg:w-[143px] lg:h-[143px] flex flex-col justify-center items-center rounded-3xl">
+          <img class="w-[60px] md:w-fit" src="{{ asset('img/kalender.png') }}" alt="">
+          <h1 class="text-[16px] md:text-[20px] font-semibold text-[#010C4A]">Presensi</h1>
         </div>
       </a>
       <a href="{{route('qrcode.scanner')}}">
-        <div class="bg-[#FFB524] border-black border border-solid w-[143px] h-[143px] flex flex-col justify-center items-center rounded-3xl">
-          <img src="{{ asset('img/qrs.png') }}" alt="">
-          <h1 class="text-[20px] font-semibold text-[#010C4A]">Scan QR</h1>
+        <div class="bg-[#FFB524] border-black border border-solid w-[120px] h-[120px] lg:w-[143px] lg:h-[143px] flex flex-col justify-center items-center rounded-3xl">
+          <img class="w-[60px] md:w-fit" src="{{ asset('img/qrs.png') }}" alt="">
+          <h1 class="text-[16px] md:text-[20px] font-semibold text-[#010C4A]">Scan QR</h1>
         </div>
       </a>
     </div>

@@ -47,7 +47,11 @@
                 <h1 class="px-7 text-[12px] md:text-[15px] lg:text-[20px] py-2 rounded-xl bg-[#FF0000] ml-auto mr-auto w-fit">Tidak Hadir</h1>
                 @endif
             </td>
+            @if ($item->status == 'hadir')
             <td class="py-2 text-[12px] md:text-[15px] lg:text-[20px] text-white/50 font-normal">{{$item->created_at}}</td>
+            @else
+            <td class="py-2 text-[12px] md:text-[15px] lg:text-[20px] text-white/50 font-normal">-</td>
+            @endif
         </tr>
         @endforeach
         @endif
